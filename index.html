@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="/lock-icon.png">
+  <title>Random Password Generator</title>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">
+      <div class="title-wrapper">
+        <h1>Password Generator</h1>
+        <p>Use our online password generator tool to instantly create a secure, random password.</p>
+      </div>
+    </div>
+
+    <div class="password-container">
+      <div class="password-result">
+        <div class="generated-wrapper">
+          <div class="generated-input">
+            <input id="generated-password" type="text" class="generated-password_input">
+            <label class="strong-label">Very strong</label>
+            <div class="icon-wrapper">
+              <button id="copy" class="icon-btn">
+                <span class="tooltip-text" id="myTooltip">Copy</span>
+                <i class="fa-regular fa-copy"></i>
+              </button>
+              <button id="generate" class="icon-btn">
+                <span class="tooltip-generate" id="myTooltip">Generate</span>
+                <i class="fa-solid fa-rotate"></i>
+              </button> 
+            </div> 
+          </div>          
+        </div>
+      </div>
+      <div class="password-strength">
+        <input type="range" name="password-strength" id="passwordStrength">
+      </div>
+
+      <div class="password-wrapper">
+        <h3 class="password-title">Customize your password</h3>         
+        <div class="password-content-wrapper">
+          <div class="range-wrapper">
+            <label class="password-length" for="password-length">Password Length</label>
+            <div class="range-inner">
+              <input id="length" class="range-inner-password_length" type="number" name="length" value="12" step="1" max="50" min="1">
+              <div class="custom-range">
+                <input id="slider" type="range" name="slider" class="custom-range-bar" min="1" max="50" value="12">
+              </div>
+            </div>
+          </div> 
+          <div class="row-wrapper">
+            <div class="radio-wrap">
+              <div class="radio">
+                <input class="radio_input" type="radio" name="encryption-style" id="easy-to-say">
+                <label class="radio_label" for="easy-to-say">
+                  Easy to say
+                  <button class="info-btn">
+                    <i id="info" class="fa-solid fa-circle-info"></i>
+                    <span class="tooltip right first">Avoid numbers and special characters</span>
+                  </button>
+                </label>
+              </div>
+              <div class="radio">
+                <input class="radio_input" type="radio" name="encryption-style" id="easy-to-read">
+                <label class="radio_label" for="easy-to-read">
+                  Easy to read
+                  <button class="info-btn">
+                    <i id="info" class="fa-solid fa-circle-info"></i>
+                    <span class="tooltip right second">Avoid ambiguous characters like l, 1, O, and 0</span>
+                  </button>
+                </label>
+              </div>
+              <div class="radio">
+                <input class="radio_input" type="radio" name="encryption-style" id="all-characters" checked>
+                <label class="radio_label" for="all-characters">
+                  All characters 
+                  <button class="info-btn">
+                    <i id="info" class="fa-solid fa-circle-info"></i>  
+                    <span class="tooltip right third">Any character combinations like !, 7, h, K, and l1</span>
+                  </button>
+                </label>
+              </div>
+            </div>
+            <div class="checkbox-wrap">
+              <div class="checkbox">
+                <input class="checkbox_input" type="checkbox" name="uppercase" id="uppercase">
+                <label class="checkbox_label" for="uppercase">Uppercase</label>
+              </div>
+              <div class="checkbox">
+                <input class="checkbox_input" type="checkbox" name="lowercase" id="lowercase">
+                <label class="checkbox_label" for="lowercase">Lowercase</label>
+              </div>
+              <div class="checkbox">
+                <input class="checkbox_input" type="checkbox" name="numbers" id="numbers">
+                <label class="checkbox_label" for="numbers">Numbers</label>
+              </div>
+              <div class="checkbox">
+                <input class="checkbox_input" type="checkbox" name="symbols" id="symbols">
+                <label class="checkbox_label" for="symbols">Symbols</label>
+              </div>
+            </div>
+          </div> 
+        </div>              
+      </div>
+    </div>
+
+    <div class="password-copy-btn">
+      <button id="copyBtn" class="copy-btn">Copy Password</button>
+        <div id="copyAlert" class="copy-btn-alert">Copied to clipboard !</div>      
+    </div>
+  </div>
+  
+
+  <script src="/script.js"></script>
+</body>
+</html>
+

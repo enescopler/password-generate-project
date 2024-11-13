@@ -1,0 +1,676 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overscroll-behavior: none;
+  background: radial-gradient(circle, rgba(76, 76, 76, 1) 0%, rgba(26, 54, 54, 1) 100%);
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Tooltip */
+.tooltip-text {
+  visibility: hidden;
+  width: 75px;
+  background-color: #f05941;
+  color: #f3f7ec;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 140%;
+  left: 58%;
+  margin-left: -65px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-generate {
+  visibility: hidden;
+  width: 84px;
+  background-color: #f05941;
+  color: #f3f7ec;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 140%;
+  left: 108%;
+  margin-left: -65px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-text::after,
+.tooltip-generate::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #f05941 transparent transparent transparent;
+}
+
+.icon-btn:hover .tooltip-text,
+.icon-btn:hover .tooltip-generate {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.5s, opacity 0.6s;
+  animation: bounce 1s ease-in-out infinite alternate;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  margin: 30px auto;
+  color: #fff;
+}
+
+.title-wrapper {
+  width: 75%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  gap: 10px;
+}
+
+.title h1 {
+  color: #f3f7ec;
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.title p {
+  color: #c1b05d;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 904px) {
+  .title h1 {
+    font-size: 40px;
+    transition: font-size 1s;
+    text-align: center;
+  }
+
+  .title p {
+    font-size: 15px;
+    transition: font-size 1s;
+    text-align: center;
+  }
+}
+
+.password-container {
+  padding: 12px 32px;
+  margin-bottom: 10px;
+  transition: all 1s ease-in-out;
+}
+
+.password-wrapper {
+  max-width: 800px;
+  height: 333px;
+  border: solid 1px #eaeaea;
+  border-radius: 16px;
+  box-shadow: #050606 0px 2px 8px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 30px 40px;
+  transition: all 1s ease-in-out;
+}
+
+@media only screen and (max-width: 720px) {
+  .password-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    transition: all 1s ease-in-out;
+  }
+}
+
+.password-content-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 40px;
+}
+
+@media only screen and (max-width: 720px) {
+  .password-content-wrapper {
+    gap: 0;
+    flex-wrap: wrap;
+  }
+}
+
+.row-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 68px;
+}
+
+@media only screen and (max-width: 720px) {
+  .row-wrapper {
+    align-items: flex-start;
+    margin: 0 auto;
+  }
+
+  .radio-wrap,
+  .checkbox-wrap {
+    width: 100%;
+    height: 200px;
+  }
+
+  .radio,
+  .checkbox {
+    width: 100%;
+    height: 33px;
+  }
+}
+
+.radio-wrap {
+  max-width: 250px;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+}
+
+.radio {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.radio_input {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  top: 0;
+  left: 0;
+}
+
+input[type="radio"] {
+  accent-color: #1A3636;
+  cursor: pointer;
+}
+
+.radio_label {
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 8px;
+  letter-spacing: -0.16px;
+  padding-left: 30px;
+}
+
+.checkbox-wrap {
+  width: 45%;
+  max-width: 250px;
+  padding-left: 25px;
+}
+
+.checkbox {
+  margin-bottom: 15px;
+  display: flex;
+}
+
+.checkbox_input {
+  width: 23px;
+  height: 23px;
+  accent-color: #1A3636;
+  cursor: pointer;
+}
+
+.checkbox_label {
+  color: #000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Source Sans 3", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-bottom: 8px;
+  letter-spacing: -0.16px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.password-title {
+  text-align: left;
+  font-size: 36px;
+  border-bottom: 2px solid #f0f2f5;
+  line-height: 2.7rem;
+  margin-bottom: 26px;
+  transition: font-size 1s;
+}
+
+@media only screen and (max-width: 720px) {
+  .password-title {
+    width: 100%;
+    font-size: 28px;
+  }
+}
+
+/* Password Result Input Section */
+.password-result {
+  width: 100%;
+  height: 115px;
+  margin: 0 auto;
+  padding: 34px;
+  display: flex;
+  background-color: #ffffff;
+  box-shadow: #050606 0px 2px 8px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.generated-wrapper {
+  width: 100%;
+}
+
+.generated-input {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.icon-wrapper {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  top: 7px;
+  left: 12px;
+  width: 76px;
+  height: 32px;
+}
+
+.icon-btn {
+  font-size: 32px;
+  border: none;
+  background-color: transparent;
+  transition: font-size 0.2s ease-in-out;
+}
+
+.icon-btn:hover {
+  font-size: 35px;
+}
+
+.icon-btn:active {
+  font-size: 32px;
+}
+
+@media only screen and (max-width: 720px) {
+  .icon-btn {
+    font-size: 25px;
+  }
+
+  .icon-btn:hover {
+    font-size: 28px;
+  }
+}
+
+.generated-password_input {
+  width: 100%;
+  max-width: 100%;
+  height: 50px;
+  margin: 0 0 16px 0;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  color: #000;
+  font-family: monospace;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 44px;
+  text-align: left;
+  overflow: scroll;
+}
+
+@media only screen and (max-width: 720px) {
+  .generated-password_input {
+    width: 100%;
+  }
+}
+
+/* Password Strength Section */
+
+.password-strength {
+  margin-bottom: 20px;
+}
+
+.password-strength > input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 18px;
+  background-color: #f5f5f5;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  transition: background-color 0.63s;
+  --thumb-width : "100%";
+  --thumb-background-color : ""; 
+}
+
+.password-strength > input[type="range"]::-webkit-slider-thumb {
+  width: var(--thumb-width);
+  height: 18px;
+  /* background-color: rgba(0, 107, 77, 77); */
+  background-color: var(--thumb-background-color);
+  transition: width 0.63s, background-color 0.2s;
+  -webkit-appearance: none;
+}
+
+.password-strength > input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  box-shadow: none;
+  border: none;
+  background: transparent;
+}
+
+
+/* Password Container */
+.range-wrapper {
+  margin-bottom: 40px;
+  display: block;
+  width: 50%;
+}
+
+@media only screen and (max-width: 720px) {
+  .range-wrapper {
+    display: block;
+    width: 100%;
+  }
+}
+
+.range-inner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: width 1s;
+}
+
+@media only screen and (max-width: 720px) {
+  .range-inner {
+    width: 100%;
+    transition: width 1s;
+  }
+}
+
+.password-length {
+  width: 319px;
+  height: 24px;
+  margin: 0 0 14px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+  display: block;
+}
+
+.range-inner-password_length {
+  width: 75px;
+  height: 50px;
+  margin: 0 20px 8px 0;
+  padding: 8px;
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  border: 1px solid #c8c8c8;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.custom-range {
+  width: 100%;
+  max-width: 100%;
+  margin: 10px 0 0 0;
+  display: flex;
+}
+
+.custom-range > input[type="range"] {
+  width: 100%; 
+  height: 10px;
+  cursor: pointer;
+  position: relative;
+  top: 10px;
+  border-radius: 5px;
+  accent-color: #1A3636;
+}
+
+.radio-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Password Copy Button */
+.password-copy-btn {
+  width: 100%;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 32px;
+}
+
+.copy-btn {
+  width: 195px;
+  height: 52px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 28px;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  transition: width 1s;
+  box-shadow: 0 0 20px #000;
+  display: block;
+  background-image: linear-gradient(to right, #b5a34b 0%, #f05941 51%, #b5a34b 100%);
+  background-size: 200% auto;
+  color: #fff;
+}
+
+.copy-btn:hover {
+  background-position: right center;
+  scale: 1.05;
+}
+
+.copy-btn:active {
+  margin-top: 4px;
+  scale: 1;
+}
+
+@media only screen and (max-width: 720px) {
+  .copy-btn {
+    width: 100%;
+  }
+
+  .copy-btn:hover {
+    width: 100%;
+  }
+}
+
+/* Tooltip Info */
+.tooltip {
+  visibility: hidden;
+  z-index: 10;
+  opacity: 0.4;
+  width: 200px;
+  padding: 10px;
+  background: #fff;
+  color: #333f48;
+  position: absolute;
+  top: -9px;
+  left: 111%;
+  border: solid 1px #d6dbdb;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: left;
+  transform: translateY(9px);
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.25);
+  line-height: 1.4;
+}
+
+.tooltip::after {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 12.5px 0 12.5px;
+  border-color: #d6dbdb transparent transparent transparent;
+  position: absolute;
+  left: -9%;
+  bottom: 32px;
+  transform: rotate(90deg);
+  z-index: -1;
+}
+
+.info-btn:hover .tooltip {
+  visibility: visible;
+  transform: translateY(-10px);
+  opacity: 1;
+  animation: bounce 1s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(6px);
+  }
+
+  100% {
+    transform: translateY(1px);
+  }
+}
+
+.right:hover {
+  transform: translateX(6px);
+}
+
+.right .tooltip {
+  top: -20%;
+  left: 115%;
+}
+
+.right .tooltip::after {
+  top: 40%;
+  left: -12%;
+  transform: rotate(90deg);
+}
+
+.info-btn {
+  border: none;
+  background: transparent;
+}
+
+.first {
+  left: 100%;
+}
+
+.second {
+  left: 106%;
+}
+
+.copy-btn-alert {
+  width: 200px;
+  height: 50px;
+  background-color: #f05941;
+  color: #f3f7ec;
+  position: absolute;
+  left: 4%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600; 
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  transform: translateY(10px);
+  transition: visibility 0.3s transform 0.3s;
+  visibility: hidden;
+  z-index: 50;
+}
+
+@media only screen and (max-width: 720px) {
+  .copy-btn-alert {
+    display: none;
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .copy-btn-alert {
+    visibility: hidden;
+  }
+}
+
+  /** Label Strong */
+.strong-label {
+  display: block;
+  width: 104px;
+  position: relative;
+  left: auto;
+  right: 10px;
+  top: 10px;
+  background-color: #04ac01;
+  color: #fff;
+  padding: 10px; 
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 685px) {
+  .strong-label {
+    display: none;
+  }
+}
